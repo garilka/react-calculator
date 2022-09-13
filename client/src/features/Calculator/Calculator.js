@@ -1,10 +1,34 @@
 import React from 'react';
 import './Calculator.css';
+import Button from '../../components/Button/Button';
 
 const Calculator = () => {
   return (
     <div className='wrapper'>
-      <h1>hello!</h1>
+      <div className='row'>
+        <Button text='7'/>
+        <Button text='8'/>
+        <Button/>
+        <Button/>
+      </div>
+      <div className='row'>
+        <Button/>
+        <Button/>
+        <Button/>
+        <Button/>
+      </div>
+      <div className='row'>
+        <Button/>
+        <Button/>
+        <Button/>
+        <Button/>
+      </div>
+      <div className='row'>
+        <Button/>
+        <Button/>
+        <Button/>
+        <Button/>
+      </div>
     </div>
   );
 };
