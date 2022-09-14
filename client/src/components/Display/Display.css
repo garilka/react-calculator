@@ -1,0 +1,18 @@
+.display {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: column;
+  height: 5em;
+  padding: 10px;
+}
+
+.result {
+  flex: 1;
+  font-size: 26px;
+}
+
+.equation {
+  flex: 1;
+  font-size: 21px;
+}
