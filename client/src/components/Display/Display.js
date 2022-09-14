@@ -1,11 +1,11 @@
 import React from 'react';
 import './Display.css';
 
-const Display = () => {
+const Display = ({result, equation}) => {
   return (
     <div className='display'>
-      <div className='result'>Hello</div>
-      <div className='equation'>Hi</div>
+      <div className='result'>{result}</div>
+      <div className='equation'>{equation}</div>
     </div>
   );
 };
