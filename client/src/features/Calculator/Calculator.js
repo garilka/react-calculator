@@ -1,26 +1,11 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './Calculator.css';
 import Button from '../../components/Button/Button';
 import Display from '../../components/Display/Display';
+import useCalculator from '../../hooks/useCalculator/useCalculator';
 
 const Calculator = () => {
-  const [equation, setEquation] = useState('');
-  const [result, setResult] = useState(0);
-
-  const addToEquation = (value) => {
-    setEquation((equation) => [...equation, value]);
-  };
-
-  const clear = () => {
-    setResult((result) => result = 0);
-    setEquation((equation) => equation = '');
-  };
-
-  const calculate = () => {
-    const input = equation.join('').replace(/×/g, '*');
-    const result = Function('return ' + input)();
-    setResult(result);
-  };
+  const {addToEquation, calculate, clear, equation, result} = useCalculator();
 
   return (
     <div className='wrapper'>
