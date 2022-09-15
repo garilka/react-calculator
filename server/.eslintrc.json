@@ -11,5 +11,8 @@
         "sourceType": "module"
     },
     "rules": {
+        "require-jsdoc": "off",
+        "valid-jsdoc": "off",
+        "new-cap": "off"
     }
 }
