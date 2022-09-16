@@ -5,15 +5,16 @@ import Display from '../../components/Display/Display';
 import useCalculator from '../../hooks/useCalculator/useCalculator';
 
 const Calculator = () => {
-  const {addToEquation, calculate, clear, equation, result} = useCalculator();
+  const {addToEquation, calculate, clear, handleGet, handlePut,
+    equation, result} = useCalculator();
 
   return (
     <div className='wrapper'>
       <Display result={result} equation={equation}/>
       <div className='row'>
         <Button text='C' handleClick={clear}/>
-        <Button text='MR'/>
-        <Button text='M+'/>
+        <Button text='MR'handleClick={handleGet}/>
+        <Button text='M+'handleClick={handlePut}/>
         <Button text='/' handleClick={addToEquation}/>
       </div>
       <div className='row'>
