@@ -1,11 +1,13 @@
 .wrapper {
-
-  background-color: white;
-  width: 300px;
-  border-radius: 10px;
+  background-color: rgb(230, 230, 230);
+  border-radius: 15px;
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+  padding-bottom: 3%;
 }
 
 .row {
+
   display: flex;
   justify-content: center;
 }

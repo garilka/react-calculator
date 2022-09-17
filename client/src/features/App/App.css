@@ -1,9 +1,10 @@
 body {
-  background-color: darkolivegreen;
-  color: black;
+  background-color: rgb(55, 55, 55);
+  color: rgb(120, 110, 140);
 }
 
 .app {
+  margin-top: 3%;
   display: flex;
   justify-content: center;
   align-items: center;
