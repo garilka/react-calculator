@@ -13,10 +13,13 @@ const get = async (req, res) => {
 };
 
 const put = (req, res) => {
-  fs.promises.writeFile(filepath, req.body.result.toString(), 'utf8')
+  const memoryValue = req.body.memoryState === '' ? req.body.result : '';
+  fs.promises.writeFile(filepath, memoryValue.toString(), 'utf8')
       .then(() => {
-        res.status(200).json({
-          message: `${req.body.result} succesfully saved in memory`});
+        const message = req.body.memoryState === '' ?
+        `M+ ${req.body.result}` : 'M clear';
+        console.log(message);
+        res.status(200).json({message: message});
       });
 };
 
