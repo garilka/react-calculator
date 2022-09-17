@@ -1,5 +1,10 @@
 import {useState} from 'react';
-import isValid from '../../services/calculatorValidation';
+import calculatorValidation from '../../services/calculatorValidation';
+import calculatorFormat from '../../services/calculatorFormat';
+
+const {isEquationValid, isCalculateValid, isMemoryReadValid} =
+  calculatorValidation();
+const {formatResult} = calculatorFormat();
 
 const useCalculator = () => {
   const [memoryState, setMemoryState] = useState('');
@@ -7,15 +12,22 @@ const useCalculator = () => {
   const [result, setResult] = useState(0);
 
   const addToEquation = (value) => {
-    if (isValid(equation, value)) {
+    if (isEquationValid(equation, value)) {
       setEquation((equation) => [...equation, value]);
     }
   };
 
   const calculate = () => {
-    const input = equation.join('').replace(/×/g, '*');
-    const result = Function('return ' + input)();
-    setResult(result);
+    try {
+      if (isCalculateValid(equation)) {
+        const input = equation.join('').replace(/×/g, '*');
+        const result = Function('return ' + input)();
+        const newFormatResult = formatResult(result);
+        setResult(newFormatResult);
+      }
+    } catch (err) {
+      setResult('syntax error');
+    }
   };
 
   const clear = () => {
@@ -37,7 +49,11 @@ const useCalculator = () => {
     }).then( async (res) => {
       if (res.status === 200) {
         const valueArr = Array.from((await res.json()).memory);
-        setEquation((equation) => [...equation, ...valueArr]);
+        if (isMemoryReadValid([...equation, ...valueArr])) {
+          setEquation((equation) => [...equation, ...valueArr]);
+        } else {
+          setResult('long equation');
+        }
       } else if (res.status === 500) {
         throw new Error('Interal server error');
       }
@@ -61,10 +77,8 @@ const useCalculator = () => {
       if (res.status === 200) {
         if (memoryState === '') {
           setMemoryState('M');
-          console.log((await res.json()).message);
         } else {
           setMemoryState('');
-          console.log((await res.json()).message);
         }
       } else if (res.status === 500) {
         throw new Error('Interal server error');
