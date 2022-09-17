@@ -16,10 +16,10 @@ const Calculator = () => {
         equation={equation}
       />
       <div className='row'>
-        <Button text='AC' handleClick={clear}/>
-        <Button text='DEL' handleClick={deleteLast}/>
-        <Button text='MR'handleClick={handleGet}/>
-        <Button text='M±'handleClick={handlePut}/>
+        <Button text='AC' handleClick={clear} height='2em'/>
+        <Button text='DEL' handleClick={deleteLast} height='2em'/>
+        <Button text='MR'handleClick={handleGet} height='2em'/>
+        <Button text='M±'handleClick={handlePut} height='2em'/>
       </div>
       <div className='row'>
         <Button text='7' handleClick={addToEquation}/>
