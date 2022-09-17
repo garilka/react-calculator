@@ -1,11 +1,14 @@
 import {useState} from 'react';
+import isValid from '../../services/calculatorValidation';
 
 const useCalculator = () => {
-  const [equation, setEquation] = useState('');
+  const [equation, setEquation] = useState([]);
   const [result, setResult] = useState(0);
 
   const addToEquation = (value) => {
-    setEquation((equation) => [...equation, value]);
+    if (isValid(equation, value)) {
+      setEquation((equation) => [...equation, value]);
+    }
   };
 
   const calculate = () => {
@@ -28,7 +31,8 @@ const useCalculator = () => {
       },
     }).then( async (res) => {
       if (res.status === 200) {
-        setResult((await res.json()).memory);
+        const valueArr = Array.from((await res.json()).memory);
+        setEquation((equation) => [...equation, ...valueArr]);
       } else if (res.status === 500) {
         throw new Error('Interal server error');
       }
