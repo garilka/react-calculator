@@ -22,6 +22,10 @@ const useCalculator = () => {
     setEquation((equation) => equation = '');
   };
 
+  const deleteLast = () => {
+    setEquation((equation) => equation.slice(0, -1));
+  };
+
   const handleGet = () => {
     fetch(process.env.REACT_APP_BACKEND_URL + '/memory/read', {
       method: 'GET',
@@ -60,7 +64,7 @@ const useCalculator = () => {
     });
   };
 
-  return {addToEquation, calculate, clear, handleGet, handlePut,
+  return {addToEquation, calculate, clear, deleteLast, handleGet, handlePut,
     equation, result};
 };
 
