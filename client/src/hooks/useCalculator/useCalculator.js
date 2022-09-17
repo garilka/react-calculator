@@ -2,6 +2,7 @@ import {useState} from 'react';
 import isValid from '../../services/calculatorValidation';
 
 const useCalculator = () => {
+  const [memoryState, setMemoryState] = useState('');
   const [equation, setEquation] = useState([]);
   const [result, setResult] = useState(0);
 
@@ -52,10 +53,19 @@ const useCalculator = () => {
         'Content-type': 'application/json',
         'Accept': 'application/json',
       },
-      body: JSON.stringify({result: result}),
-    }).then((res) => {
+      body: JSON.stringify({
+        result: result,
+        memoryState: memoryState,
+      }),
+    }).then( async (res) => {
       if (res.status === 200) {
-        console.log(`${result} succesfully saved in memory`);
+        if (memoryState === '') {
+          setMemoryState('M');
+          console.log((await res.json()).message);
+        } else {
+          setMemoryState('');
+          console.log((await res.json()).message);
+        }
       } else if (res.status === 500) {
         throw new Error('Interal server error');
       }
@@ -65,7 +75,7 @@ const useCalculator = () => {
   };
 
   return {addToEquation, calculate, clear, deleteLast, handleGet, handlePut,
-    equation, result};
+    memoryState, equation, result};
 };
 
 export default useCalculator;
