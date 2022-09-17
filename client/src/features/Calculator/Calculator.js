@@ -6,16 +6,20 @@ import useCalculator from '../../hooks/useCalculator/useCalculator';
 
 const Calculator = () => {
   const {addToEquation, calculate, clear, deleteLast, handleGet, handlePut,
-    equation, result} = useCalculator();
+    memoryState, equation, result} = useCalculator();
 
   return (
     <div className='wrapper'>
-      <Display result={result} equation={equation}/>
+      <Display
+        memoryState={memoryState}
+        result={result}
+        equation={equation}
+      />
       <div className='row'>
         <Button text='AC' handleClick={clear}/>
         <Button text='DEL' handleClick={deleteLast}/>
         <Button text='MR'handleClick={handleGet}/>
-        <Button text='M+'handleClick={handlePut}/>
+        <Button text='M±'handleClick={handlePut}/>
       </div>
       <div className='row'>
         <Button text='7' handleClick={addToEquation}/>
