@@ -26,7 +26,7 @@ const put = (req, res) => {
       fs.promises.writeFile(filepath, memoryValue.toString(), 'utf8')
           .then(() => {
             const message = req.body.memoryState === '' ?
-            `M+ ${req.body.result}` : 'M clear';
+            `${req.body.result} saved in M` : 'M clear';
             res.status(200).json({message: message});
           });
     } else {
