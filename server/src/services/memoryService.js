@@ -1,4 +1,14 @@
+import fs from 'fs';
+
 const memoryService = () => {
+  const readMemory = async (filePath, encoding) => {
+    return await fs.promises.readFile(filePath, encoding);
+  };
+
+  const writeMemory = async (filePath, content, encoding) => {
+    fs.promises.writeFile(filePath, content, encoding);
+  };
+
   const isMemoryValueValid = (value) => {
     if (/([0-9]+\.[0-9]+e\+[0-9]+)/.test(value)) {
       return true;
@@ -11,7 +21,7 @@ const memoryService = () => {
     }
     return true;
   };
-  return {isMemoryValueValid};
+  return {readMemory, writeMemory, isMemoryValueValid};
 };
 
 export default memoryService;
