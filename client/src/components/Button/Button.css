@@ -1,14 +1,18 @@
+.button-wrapper {
+  margin-left: 1.6vw;
+  margin-right: 1.6vw;
+  margin-bottom: 1.6vw;
+}
 .button {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 3em;
-  width: 3em;
+  height: 5vw;
+  width: 5vw;
   font-size: 1.7vw;
   border-radius: 2em;
   margin: 5px;
-  background-color: rgba(255, 255, 255, 0.322);
-  box-shadow: -5px -5px 6px rgba(255, 255, 255, 0.664), 5px 5px 8px rgba(94, 104, 121, 0.158);
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 .button:hover {
@@ -16,6 +20,6 @@
 }
 
 .button:active {
-  background-color: rgba(255, 255, 255, 0.795);
-  box-shadow: -5px -5px 6px rgba(255, 255, 255, 0.753), 5px 5px 8px rgba(230, 230, 230, 0.849);
+  color: rgba(20, 40, 100, 0.4);
+  background-color: rgba(255, 255, 255, 0.9);
 }
