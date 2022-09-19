@@ -34,19 +34,23 @@ describe('writeFile() from MemoryService', () => {
 describe('isMemoryValueValid() from memoryService', () => {
   it('should return true on type of number', () => {
     const valueToSave = 2;
-    expect(() => isMemoryValueValid(valueToSave).toBe(true));
+    expect(isMemoryValueValid(valueToSave)).toBe(true);
   });
   it('should return false on type of not number', () => {
-    const valueToSave = '2';
-    expect(() => isMemoryValueValid(valueToSave).toBe(false));
+    const valueToSave = 'a';
+    expect(isMemoryValueValid(valueToSave)).toBe(false);
   });
-  it('should return false is the length of result greater than 10', () => {
+  it('should return false if the length of result greater than 10', () => {
     const valueToSave = 20302.20302;
-    expect(() => isMemoryValueValid(valueToSave).toBe(false));
+    expect(isMemoryValueValid(valueToSave)).toBe(false);
   });
-  it('should return true on exponential form', () => {
+  it('should return true if the length of result smaller than 11', () => {
+    const valueToSave = 20302.2030;
+    expect(isMemoryValueValid(valueToSave)).toBe(true);
+  });
+  it('should return true on exponential number format', () => {
     const valueToSave = 2.4580e+70;
-    expect(() => isMemoryValueValid(valueToSave).toBe(true));
+    expect(isMemoryValueValid(valueToSave)).toBe(true);
   });
 });
 
