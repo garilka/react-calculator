@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "jest",
-    "start": "nodemon src/index.js"
+    "start": "nodemon index.js"
   },
   "author": "Garai Ilka",
   "license": "ISC",
