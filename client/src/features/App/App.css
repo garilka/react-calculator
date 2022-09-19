@@ -1,10 +1,14 @@
-body {
-  background-color: rgb(55, 55, 55);
-  color: rgb(120, 110, 140);
+html {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: rgba(40, 45, 100, 0.85);
+  background: linear-gradient(45deg, rgba(255, 134, 112, 0.4) 10%, rgba(28, 149, 230, 0.644) 50%, rgba(177, 223, 252, 0.63) 88%);
+
 }
 
 .app {
-  margin-top: 3%;
   display: flex;
   justify-content: center;
   align-items: center;
