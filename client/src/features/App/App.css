@@ -4,7 +4,8 @@ html {
   align-items: center;
   height: 100%;
   color: rgba(40, 45, 100, 0.85);
-  background: linear-gradient(45deg, rgba(255, 134, 112, 0.4) 10%, rgba(28, 149, 230, 0.644) 50%, rgba(177, 223, 252, 0.63) 88%);
+  background: rgb(143,148,224);
+  background: linear-gradient(45deg, rgba(111, 117, 199, 0.5) 0%, rgba(34, 107, 190, 0.6) 49%, rgba(217, 240, 247, 0.3) 100%);
 
 }
 

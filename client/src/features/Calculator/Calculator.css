@@ -1,6 +1,6 @@
 .wrapper {
-  background-color: rgba(255, 255, 255, 0.8);
-  background: linear-gradient(45deg, rgba(237,237,237,0.4) 0%, rgba(255,255,255,0.9) 50%, rgba(237,237,237,0.5) 100%);
+  background-color: rgba(218, 216, 216, 0.8);
+  background: linear-gradient(45deg, rgba(201, 216, 216, 0.2) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(199, 213, 218, 0.5) 100%);
   border-radius: 1.5em;
   padding-bottom: 2.6%;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
