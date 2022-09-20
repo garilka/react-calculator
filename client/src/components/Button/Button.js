@@ -1,7 +1,7 @@
 import React from 'react';
 import './Button.css';
 
-const Button = ({text, handleClick, height, color, fontSize}) => {
+const Button = ({text, handleClick, height, color, textColor, fontSize}) => {
   return (
     <div
       className='button'
@@ -9,6 +9,7 @@ const Button = ({text, handleClick, height, color, fontSize}) => {
       style={{
         height: height,
         backgroundColor: color,
+        color: textColor,
         fontSize: fontSize,
       }}
     >

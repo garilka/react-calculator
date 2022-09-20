@@ -20,6 +20,6 @@
 }
 
 .button:active {
-  color: rgba(20, 40, 100, 0.4);
-  background-color: rgba(255, 255, 255, 0.9);
+  color: rgb(131, 131, 131);
+  background-color: rgba(255, 255, 255);
 }
